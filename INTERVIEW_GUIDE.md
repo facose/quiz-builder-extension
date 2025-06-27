@@ -1,7 +1,7 @@
 # Interview Guide - AI Question Builder
 
 ## Overview
-This interview evaluates candidates for the Career Explorer position by having them add AI-powered question generation to a Rails + React application. The setup mirrors the architecture they'll work with when migrating from Next.js to Rails.
+This interview evaluates candidates by having them add AI-powered question generation to a Rails + React application.
 
 ## Time Allocation (45-60 minutes)
 - Part 1: Rails Backend (15-20 min)
