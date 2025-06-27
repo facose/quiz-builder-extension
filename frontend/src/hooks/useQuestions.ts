@@ -1,6 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { questionsApi } from '../api/questions';
-import { CreateQuestionDTO } from '../types';
 
 const QUESTIONS_QUERY_KEY = ['questions'];
 

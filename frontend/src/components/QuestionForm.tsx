@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useCreateQuestion } from '../hooks/useQuestions';
-import { CreateQuestionDTO } from '../types';
+import type { CreateQuestionDTO } from '../types';
 import { Button } from './Button';
 
 export function QuestionForm() {

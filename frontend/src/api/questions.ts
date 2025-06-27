@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Question, CreateQuestionDTO } from '../types';
+import type { Question, CreateQuestionDTO } from '../types';
 
 const api = axios.create({
   baseURL: '/api/v1',
