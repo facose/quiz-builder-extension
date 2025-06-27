@@ -16,9 +16,3 @@ export interface CreateQuestionDTO {
 export interface ApiError {
   errors: string[];
 }
-
-// TODO: Add interface for AI generation request
-// export interface GenerateQuestionDTO {
-//   topic: string;
-//   difficulty: 'easy' | 'medium' | 'hard';
-// }

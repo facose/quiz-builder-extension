@@ -1,0 +1,33 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore bootsnap cache files
+/tmp/cache/
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore sqlite database files
+*.sqlite3
+*.sqlite3-*
+
+# Ignore node_modules if any
+node_modules/

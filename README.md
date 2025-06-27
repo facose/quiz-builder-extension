@@ -16,14 +16,26 @@ During the interview, you'll add AI-powered question generation to this quiz bui
    - Implement loading states during generation
    - Display generated questions with proper error handling
 
-## Quick Start (5 minutes)
+## Quick Start (2 minutes with Docker)
 
-### Prerequisites
+### Option 1: Docker (Recommended)
+```bash
+# One command setup - includes PostgreSQL, Rails API, and React frontend
+docker-compose up --build
+
+# Visit the application:
+# Frontend: http://localhost:5173
+# API: http://localhost:3000
+```
+
+### Option 2: Local Development
+
+#### Prerequisites
 - Ruby 3.2+ and Node.js 18+
 - PostgreSQL running locally
 - OpenAI API key (we'll provide this during the interview)
 
-### Backend Setup
+#### Backend Setup
 ```bash
 cd backend
 bundle install
@@ -32,14 +44,14 @@ rails db:create db:migrate db:seed
 rails server  # Runs on http://localhost:3000
 ```
 
-### Frontend Setup (new terminal)
+#### Frontend Setup (new terminal)
 ```bash
 cd frontend
 npm install
 npm run dev  # Runs on http://localhost:5173
 ```
 
-### Or use the convenience script:
+#### Or use the convenience script:
 ```bash
 ./scripts/dev.sh  # Starts both servers
 ```

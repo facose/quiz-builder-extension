@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   postgres:
@@ -9,29 +8,51 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: quiz_builder_development
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U quiz_builder"]
+      test: ["CMD-SHELL", "pg_isready -U quiz_builder -d quiz_builder_development"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-  redis:
-    image: redis:7-alpine
-    container_name: quiz_builder_redis
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: quiz_builder_backend
     ports:
-      - "6379:6379"
-    command: redis-server --appendonly yes
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://quiz_builder:password@postgres:5432/quiz_builder_development
+      - RAILS_ENV=development
     volumes:
-      - redis_data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      - ./backend:/rails
+      - bundle_cache:/usr/local/bundle
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      bash -c "bundle install &&
+               bundle exec rails db:create db:migrate db:seed &&
+               bundle exec rails server -b 0.0.0.0"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: quiz_builder_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:3000
 
 volumes:
   postgres_data:
-  redis_data:
+  bundle_cache:
