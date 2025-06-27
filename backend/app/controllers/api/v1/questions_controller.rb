@@ -1,8 +1,4 @@
 class Api::V1::QuestionsController < ApplicationController
-  # TODO: Add AI generation endpoint
-  # Consider: Should this be a separate controller?
-  # Consider: How would you version this API?
-
   def index
     questions = Question.recent
     render json: questions

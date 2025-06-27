@@ -8,12 +8,7 @@ Rails.application.routes.draw do
   # API routes
   namespace :api do
     namespace :v1 do
-      resources :questions, only: [:index, :create] do
-        collection do
-          # TODO: Add generate endpoint for AI-powered question generation
-          # post :generate
-        end
-      end
+      resources :questions, only: [:index, :create]
     end
   end
 

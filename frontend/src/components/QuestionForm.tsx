@@ -34,9 +34,6 @@ export function QuestionForm() {
           </p>
         </div>
         
-        {/* TODO: Add "Generate with AI" button */}
-        {/* Consider: Optimistic updates vs. waiting? */}
-        {/* Consider: How to handle partial failures? */}
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">

@@ -74,8 +74,4 @@ RSpec.describe "Api::V1::Questions", type: :request do
     end
   end
 
-  # TODO: Add tests for the generate endpoint
-  # describe "POST /api/v1/questions/generate" do
-  #   # Tests will be added during the interview
-  # end
 end

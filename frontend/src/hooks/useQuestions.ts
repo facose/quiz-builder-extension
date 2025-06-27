@@ -23,14 +23,3 @@ export const useCreateQuestion = () => {
   });
 };
 
-// TODO: Add hook for AI generation
-// export const useGenerateQuestion = () => {
-//   const queryClient = useQueryClient();
-//   
-//   return useMutation({
-//     mutationFn: questionsApi.generate,
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: QUESTIONS_QUERY_KEY });
-//     },
-//   });
-// };

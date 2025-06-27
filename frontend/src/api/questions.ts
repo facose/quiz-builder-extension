@@ -21,11 +21,4 @@ export const questionsApi = {
     return response.data;
   },
 
-  // TODO: Add generation API call
-  // Consider: Retry strategies?
-  // Consider: Cost optimization?
-  // generate: async (data: GenerateQuestionDTO): Promise<Question> => {
-  //   const response = await api.post<Question>('/questions/generate', { question: data });
-  //   return response.data;
-  // },
 };

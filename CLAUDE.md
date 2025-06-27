@@ -98,26 +98,12 @@ This is a Rails + React application designed for AI-powered quiz question genera
 ### Key Patterns
 
 #### Service Objects
-Business logic is extracted into service objects in `app/services/`:
-```ruby
-# Example: app/services/question_generator.rb
-class QuestionGenerator
-  def initialize(topic:, difficulty:)
-    @topic = topic
-    @difficulty = difficulty
-  end
-
-  def call
-    # OpenAI integration logic for generating quiz questions
-  end
-end
-```
+Business logic can be extracted into service objects in `app/services/` following Rails conventions.
 
 #### API Structure
 RESTful API following Rails conventions:
 - `GET /api/v1/questions` - List all quiz questions
 - `POST /api/v1/questions` - Create a new question manually
-- `POST /api/v1/questions/generate` - Generate question with AI (to be implemented)
 
 #### Frontend State Management
 - React Query for server state and caching of questions
@@ -168,21 +154,9 @@ The Question model represents quiz questions with:
 - Uses jsdom environment for DOM testing
 - Testing Library for user interaction testing
 
-## Interview Implementation Goals
+## Interview Task
 
-The starter includes TODO comments and incomplete features that candidates should implement:
-
-### Backend Tasks
-- Add `POST /api/v1/questions/generate` endpoint
-- Create `QuestionGenerator` service with OpenAI integration
-- Implement proper error handling for AI API failures
-- Add request validation and sanitization
-
-### Frontend Tasks
-- Add "Generate with AI" button to QuestionForm
-- Implement loading states during AI generation
-- Handle and display generation errors gracefully
-- Update form with generated question content
+Candidates will enhance this application by adding AI-powered question generation functionality. The specific implementation approach is left open to allow candidates to demonstrate their problem-solving and architectural thinking.
 
 ## Important Notes
 

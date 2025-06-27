@@ -2,19 +2,9 @@
 
 A tool for teachers to generate quiz questions with AI assistance. This starter repo provides a Rails API backend with a separate React frontend.
 
-## What You'll Build
+## Interview Task
 
-During the interview, you'll add AI-powered question generation to this quiz builder app:
-
-1. **Rails Backend**:
-   - Create `/api/v1/questions/generate` endpoint
-   - Implement `QuestionGenerator` service with OpenAI integration
-   - Handle errors and edge cases appropriately
-
-2. **React Frontend**:
-   - Add "Generate with AI" button to the question form
-   - Implement loading states during generation
-   - Display generated questions with proper error handling
+During the interview, you'll enhance this quiz builder app by adding AI-powered question generation functionality. The specific implementation approach is up to you - we want to see how you think about and solve the problem.
 
 ## Quick Start (2 minutes with Docker)
 
@@ -71,8 +61,8 @@ npm run dev  # Runs on http://localhost:5173
 - `GET /api/v1/questions` - List all questions
 - `POST /api/v1/questions` - Create a new question manually
 
-### To Be Implemented
-- `POST /api/v1/questions/generate` - Generate a question with AI
+### Your Task
+- Add AI question generation capability
 
 ## Project Structure
 
@@ -99,7 +89,6 @@ frontend/
 1. The Rails server must be running for the React app to work
 2. API requests from React are proxied through Vite to avoid CORS issues
 3. Check the browser console and Rails logs for debugging
-4. Existing code has strategic TODO comments to guide you
 
 ## What We're Looking For
 

@@ -134,13 +134,8 @@ Add "Generate with AI" button to QuestionForm that:
 - Basic error messages (discuss UX)
 - No request queuing (discuss architecture)
 
-### TODO Comments
-Strategic comments guide but don't hand-hold:
-```ruby
-# TODO: Add AI generation endpoint
-# Consider: Should this be a separate controller?
-# Consider: How would you version this API?
-```
+### Code Comments
+The codebase has been kept minimal to allow candidates to demonstrate their architectural thinking and implementation approach.
 
 ## Scoring Guide
 
