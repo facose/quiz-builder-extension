@@ -23,81 +23,89 @@ export function QuestionForm() {
   };
 
   return (
-    <div className="bg-white shadow sm:rounded-lg">
-      <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
-          Create New Question
-        </h3>
+    <div className="bg-white shadow-lg border border-gray-100 sm:rounded-xl">
+      <div className="px-6 py-8 sm:p-8">
+        <div className="mb-8">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+            Create New Question
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Create and manage quiz questions with AI assistance
+          </p>
+        </div>
         
         {/* TODO: Add "Generate with AI" button */}
         {/* Consider: Optimistic updates vs. waiting? */}
         {/* Consider: How to handle partial failures? */}
         
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <label htmlFor="topic" className="block text-sm font-medium text-gray-700">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="space-y-2">
+            <label htmlFor="topic" className="block text-sm font-semibold text-gray-800">
               Topic
             </label>
             <input
               type="text"
               id="topic"
               {...register('topic', { required: 'Topic is required' })}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-400 transition-colors duration-200"
               placeholder="e.g., Math, Science, History"
             />
             {errors.topic && (
-              <p className="mt-1 text-sm text-red-600">{errors.topic.message}</p>
+              <p className="text-sm text-red-600 font-medium">{errors.topic.message}</p>
             )}
           </div>
 
-          <div>
-            <label htmlFor="difficulty" className="block text-sm font-medium text-gray-700">
+          <div className="space-y-2">
+            <label htmlFor="difficulty" className="block text-sm font-semibold text-gray-800">
               Difficulty
             </label>
             <select
               id="difficulty"
               {...register('difficulty', { required: 'Difficulty is required' })}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-400 transition-colors duration-200 bg-white"
             >
-              <option value="">Select difficulty</option>
+              <option value="" className="text-gray-400">Select difficulty</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
             {errors.difficulty && (
-              <p className="mt-1 text-sm text-red-600">{errors.difficulty.message}</p>
+              <p className="text-sm text-red-600 font-medium">{errors.difficulty.message}</p>
             )}
           </div>
 
-          <div>
-            <label htmlFor="question_text" className="block text-sm font-medium text-gray-700">
+          <div className="space-y-2">
+            <label htmlFor="question_text" className="block text-sm font-semibold text-gray-800">
               Question
             </label>
             <textarea
               id="question_text"
-              rows={3}
+              rows={4}
               {...register('question_text', { required: 'Question text is required' })}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:border-gray-400 transition-colors duration-200 resize-none"
               placeholder="Enter your question here..."
             />
             {errors.question_text && (
-              <p className="mt-1 text-sm text-red-600">{errors.question_text.message}</p>
+              <p className="text-sm text-red-600 font-medium">{errors.question_text.message}</p>
             )}
           </div>
 
           {createQuestion.error && (
-            <div className="bg-red-50 border border-red-200 rounded-md p-4">
-              <div className="text-sm text-red-700">
-                Failed to create question. Please try again.
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="flex items-center">
+                <div className="text-sm text-red-800 font-medium">
+                  Failed to create question. Please try again.
+                </div>
               </div>
             </div>
           )}
 
-          <div className="flex justify-end">
+          <div className="pt-4 flex justify-end">
             <Button
               type="submit"
               loading={createQuestion.isPending}
               disabled={createQuestion.isPending}
+              className="px-6 py-3"
             >
               Create Question
             </Button>
