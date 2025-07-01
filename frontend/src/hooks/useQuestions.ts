@@ -1,7 +1,7 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { questionsApi } from '../api/questions';
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { questionsApi } from "../api/questions";
 
-const QUESTIONS_QUERY_KEY = ['questions'];
+const QUESTIONS_QUERY_KEY = ["questions"];
 
 export const useQuestions = () => {
   return useQuery({
@@ -23,3 +23,14 @@ export const useCreateQuestion = () => {
   });
 };
 
+export const useCreateAIQuestion = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: questionsApi.createAI,
+    onSuccess: () => {
+      // Invalidate and refetch questions after successful AI question creation
+      queryClient.invalidateQueries({ queryKey: QUESTIONS_QUERY_KEY });
+    },
+  });
+};

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :questions, only: [:index, :create]
+      post "openai/generate_question", to: "openai#generate_question"
     end
   end
 

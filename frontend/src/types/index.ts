@@ -1,7 +1,7 @@
 export interface Question {
   id: number;
   topic: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: "easy" | "medium" | "hard";
   question_text: string;
   created_at: string;
   updated_at: string;
@@ -9,8 +9,11 @@ export interface Question {
 
 export interface CreateQuestionDTO {
   topic: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: "easy" | "medium" | "hard";
   question_text: string;
+}
+export interface CreateAIQuestionDTO {
+  query: string;
 }
 
 export interface ApiError {
